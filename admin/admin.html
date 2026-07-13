@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Majelis - Sidang Kepengurusan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="inner admin-topbar">
+            <div class="logo-wrapper"><img src="../assets/images/logo.png" alt="Logo HIMAGRIND-PNC"></div>
+            <div>
+                <h1>Dashboard Majelis</h1>
+                <p>Persidangan Kategori A</p>
+            </div>
+            <span class="who" id="who-label"></span>
+            <button class="btn btn-primary" id="btn-logout" style="width:auto;padding:.5rem .9rem;">Keluar</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="admin-layout">
+            <div class="control-panel">
+                <svg class="motif" aria-hidden="true" width="200" height="240" viewBox="0 0 200 260" style="top:-45px; right:-35px;">
+                    <path d="M100 10 C 150 70, 165 150, 100 250 C 35 150, 50 70, 100 10 Z" fill="currentColor"/>
+                </svg>
+                <div>
+                    <div class="current-label" id="current-label">Memuat…</div>
+                    <div class="current-title" id="current-title">—</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-control primary" id="btn-mulai"><i class="fa-solid fa-play"></i> Mulai</button>
+                    <button class="btn btn-control" id="btn-sebelumnya"><i class="fa-solid fa-backward-step"></i> Sebelumnya</button>
+                    <button class="btn btn-control" id="btn-lanjut"><i class="fa-solid fa-forward-step"></i> Lanjut</button>
+                    <button class="btn btn-control" id="btn-selesai"><i class="fa-solid fa-flag-checkered"></i> Selesai</button>
+                    <button class="btn btn-control danger" id="btn-reset"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                </div>
+            </div>
+
+            <div class="step-list" id="step-list">
+                <svg class="motif" aria-hidden="true" width="150" height="150" viewBox="0 0 200 200" style="bottom:-30px; right:-30px;">
+                    <path d="M45 150 C 5 120, 5 70, 55 55 C 105 40, 130 90, 100 125 C 75 155, 15 165, 45 150 Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 HIMAGRIND-PNC. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <div class="dialog-overlay" id="dialog-overlay" hidden>
+        <div class="dialog-box">
+            <svg class="motif" aria-hidden="true" width="130" height="130" viewBox="0 0 200 200" style="bottom:-25px; right:-25px;">
+                <path d="M45 150 C 5 120, 5 70, 55 55 C 105 40, 130 90, 100 125 C 75 155, 15 165, 45 150 Z" fill="currentColor"/>
+            </svg>
+            <h3 id="dialog-title">Konfirmasi</h3>
+            <p id="dialog-desc"></p>
+            <div class="dialog-actions">
+                <button class="btn btn-ghost" id="dialog-cancel">Batal</button>
+                <button class="btn btn-danger" id="dialog-confirm">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../assets/js/admin.js"></script>
+</body>
+</html>
