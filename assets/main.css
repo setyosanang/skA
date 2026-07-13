@@ -1,0 +1,284 @@
+/* ===========================================================
+   MAIN THEME — Mesin Presentasi Persidangan Kategori A
+   Palet warna diturunkan dari logo (sage/olive lembut di atas
+   krem hangat). Tema terang, nyaman di mata, tidak gelap.
+=========================================================== */
+
+:root{
+    /* --- Permukaan --- */
+    --bg-page:#F4F1E8;
+    --bg-page-alt:#EFEBDD;
+    --bg-header:#FFFDF8;
+    --bg-card:#FFFFFF;
+    --bg-card-soft:#FAF8F1;
+    --bg-card-hover:#F3F0E5;
+
+    --border:#E2DCC8;
+    --border-strong:#D2CAAE;
+
+    /* --- Aksen utama, diturunkan dari warna kanvas logo --- */
+    --primary:#6E7458;
+    --primary-hover:#828A69;
+    --primary-tint:#E9EADD;
+
+    /* --- Aksen "tahap spesial" — hangat & jelas beda dari default --- */
+    --special:#B27B3D;
+    --special-hover:#C68F4E;
+    --special-tint:#F7ECDA;
+
+    --danger:#B15454;
+    --danger-tint:#F6E4E1;
+
+    /* --- Teks --- */
+    --text:#2B2A21;
+    --text-secondary:#565540;
+    --text-muted:#918D74;
+
+    /* --- Teks khusus di dalam kontainer tahapan (board) — sage tua --- */
+    --board-title-color:#38402A;
+    --board-text-color:#4F5A3E;
+    --board-eyebrow-color:#6E7458;
+
+    /* --- Warna kanvas logo, dipakai agar lencana logo menyatu --- */
+    --logo-background:#9A9C8E;
+
+    --radius:20px;
+    --radius-sm:11px;
+
+    --font-display:'Fraunces',serif;
+    --font-body:'Inter',sans-serif;
+
+    --shadow-soft:0 2px 14px rgba(60,58,40,.06);
+    --shadow-card:0 8px 30px rgba(60,58,40,.08);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html,body{ height:100%; }
+
+body{
+    font-family:var(--font-body);
+    background:var(--bg-page);
+    background-image:
+        radial-gradient(circle at 8% 8%, var(--bg-page-alt) 0%, transparent 42%),
+        radial-gradient(circle at 96% 92%, var(--bg-page-alt) 0%, transparent 45%);
+    background-attachment:fixed;
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+::-webkit-scrollbar{ width:8px; height:8px; }
+::-webkit-scrollbar-track{ background:var(--bg-page-alt); }
+::-webkit-scrollbar-thumb{ background:var(--border-strong); border-radius:999px; }
+::-webkit-scrollbar-thumb:hover{ background:var(--text-muted); }
+
+/* ===========================
+   MOTIF DEKORATIF (SVG, bukan ikon)
+   Bentuk mengikuti garis lengkung logo — daun/pita mengalun.
+   Selalu di belakang konten, sangat lembut.
+=========================== */
+
+.motif{
+    position:absolute;
+    pointer-events:none;
+    z-index:-1;
+    color:var(--primary);
+    opacity:.13;
+}
+
+.motif--soft{ opacity:.08; }
+.motif--special{ color:var(--special); opacity:.22; }
+
+.motif-leaf{ width:clamp(220px,28vw,380px); height:auto; }
+.motif-loop{ width:clamp(140px,16vw,220px); height:auto; }
+.motif-leaf-sm{ width:clamp(120px,14vw,190px); height:auto; }
+
+/* ===========================
+   HEADER
+=========================== */
+
+.site-header{
+    background:var(--bg-header);
+    border-bottom:1px solid var(--border);
+    padding:.9rem 1.5rem;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.site-header .inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:1.1rem;
+}
+
+.site-header .logo-wrapper{
+    width:52px;
+    height:52px;
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+    flex-shrink:0;
+    background:var(--logo-background);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-soft);
+}
+
+.site-header .logo-wrapper img{ width:100%; height:100%; object-fit:cover; }
+
+.site-header h1{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--text);
+    line-height:1.25;
+}
+
+.site-header p{
+    font-family:var(--font-body);
+    font-size:.72rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:var(--text-muted);
+    margin-top:.2rem;
+}
+
+.header-status{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    font-size:.68rem;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:600;
+}
+
+.status-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--text-muted);
+}
+
+.status-dot.pending,
+.status-dot.waiting{ background:#C7A21E; box-shadow:0 0 0 4px rgba(199,162,30,.16); }
+.status-dot.batal{ background:var(--danger); box-shadow:0 0 0 4px rgba(177,84,84,.16); }
+.status-dot.unknown{ background:var(--text-muted); box-shadow:0 0 0 4px rgba(145,141,116,.12); }
+.status-dot.live{ background:#5C9A6B; box-shadow:0 0 0 4px rgba(92,154,107,.16); }
+
+/* ===========================
+   MAIN / STAGE
+=========================== */
+
+main{
+    flex:1;
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:2rem 1.25rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    position:relative;
+    z-index:1;
+}
+
+@media(min-width:900px){
+    main{ max-width:1280px; padding:3rem 2rem; }
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.site-footer{
+    background:var(--bg-header);
+    border-top:1px solid var(--border);
+    padding:1rem;
+    text-align:center;
+    font-size:.68rem;
+    color:var(--text-muted);
+    position:relative;
+    z-index:1;
+}
+
+/* ===========================
+   LOGIN
+=========================== */
+
+.login-shell{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2rem 1rem;
+    position:relative;
+}
+
+.login-card{
+    width:100%;
+    max-width:380px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:2.25rem 2rem;
+    box-shadow:var(--shadow-card);
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+}
+
+.login-card h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.35rem;
+    margin-bottom:.35rem;
+    color:var(--text);
+}
+
+.login-card > p{ color:var(--text-muted); font-size:.8rem; line-height:1.5; margin-bottom:1.5rem; }
+
+.field{ margin-bottom:1rem; display:flex; flex-direction:column; gap:.4rem; }
+
+.field label{ font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); }
+
+.field input{
+    background:var(--bg-card-soft);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    padding:.65rem .8rem;
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:.9rem;
+}
+
+.field input:focus{ outline:2px solid var(--primary); outline-offset:1px; }
+
+.btn{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:.8rem;
+    border:none;
+    border-radius:var(--radius-sm);
+    padding:.7rem 1.1rem;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:focus-visible{ outline:2px solid var(--primary-hover); outline-offset:2px; }
+
+.btn-primary{ background:var(--primary); color:#fff; width:100%; }
+.btn-primary:hover{ background:var(--primary-hover); }
+
+.error-text{ color:var(--danger); font-size:.75rem; margin-top:.5rem; min-height:1em; }
+
+@media(prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
