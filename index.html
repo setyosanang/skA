@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERSIDANGAN KATEGORI A — HIMAGRIND-PNC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="inner">
+            <div class="logo-wrapper"><img src="assets/images/logo.png" alt="Logo HIMAGRIND-PNC"></div>
+            <div>
+                <h1>Persidangan Kategori A</h1>
+                <p>Kebijakan Publik · HIMAGRIND-PNC</p>
+            </div>
+            <div class="header-status">
+                <span class="status-dot waiting" id="status-dot"></span>
+                <span id="status-label">Memuat…</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="board" id="board-stage">
+            <svg class="motif motif-leaf" aria-hidden="true" viewBox="0 0 200 260" style="top:-15%; right:-8%;">
+                <path d="M100 10 C 150 70, 165 150, 100 250 C 35 150, 50 70, 100 10 Z" fill="currentColor"/>
+            </svg>
+            <svg class="motif motif-loop" aria-hidden="true" viewBox="0 0 200 200" style="bottom:-10%; left:-6%;">
+                <path d="M45 150 C 5 120, 5 70, 55 55 C 105 40, 130 90, 100 125 C 75 155, 15 165, 45 150 Z" fill="currentColor"/>
+            </svg>
+            <svg class="motif motif--soft motif-leaf-sm" aria-hidden="true" viewBox="0 0 200 260" style="top:-8%; left:-5%; transform:rotate(18deg);">
+                <path d="M100 10 C 150 70, 165 150, 100 250 C 35 150, 50 70, 100 10 Z" fill="currentColor"/>
+            </svg>
+            <svg class="motif motif--soft motif-loop" aria-hidden="true" viewBox="0 0 200 200" style="bottom:-8%; right:-6%; transform:rotate(-12deg);">
+                <path d="M45 150 C 5 120, 5 70, 55 55 C 105 40, 130 90, 100 125 C 75 155, 15 165, 45 150 Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 HIMAGRIND-PNC. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

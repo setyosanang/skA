@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin — Persidangan Kategori A</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="inner">
+            <div class="logo-wrapper"><img src="assets/images/logo.png" alt="Logo HIMAGRIND-PNC"></div>
+            <div>
+                <h1>Persidangan Kategori A</h1>
+                <p>Dashboard Majelis</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-shell">
+        <form class="login-card" id="login-form">
+            <svg class="motif" aria-hidden="true" width="190" height="230" viewBox="0 0 200 260" style="top:-40px; right:-45px;">
+                <path d="M100 10 C 150 70, 165 150, 100 250 C 35 150, 50 70, 100 10 Z" fill="currentColor"/>
+            </svg>
+            <h2>Masuk Majelis</h2>
+            <p>Khusus Majelis/Sekretaris yang bertugas mengendalikan jalannya sidang.</p>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" required autocomplete="username">
+            </div>
+            <div class="field">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btn-submit">Masuk</button>
+            <p class="error-text" id="error-text"></p>
+        </form>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 HIMAGRIND-PNC. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <script type="module">
+        import { login, getSession } from './assets/js/auth.js';
+
+        const form = document.getElementById('login-form');
+        const errorText = document.getElementById('error-text');
+        const btn = document.getElementById('btn-submit');
+
+        getSession().then((session) => {
+            if (session) window.location.href = 'admin/admin.html';
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorText.textContent = '';
+            btn.disabled = true;
+            btn.textContent = 'Memeriksa…';
+            try {
+                await login(document.getElementById('email').value, document.getElementById('password').value);
+                window.location.href = 'admin/admin.html';
+            } catch (err) {
+                errorText.textContent = err.message || 'Login gagal.';
+                btn.disabled = false;
+                btn.textContent = 'Masuk';
+            }
+        });
+    </script>
+</body>
+</html>
