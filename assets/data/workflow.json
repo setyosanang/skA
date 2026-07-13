@@ -1,0 +1,182 @@
+{
+  "_petunjuk": "Setiap object di \"steps\" adalah satu tahapan sidang, termasuk id 0. Field \"status\" harus memakai salah satu status yang didefinisikan di config.json agar warna dan label tampil benar.",
+  "session_name": "Persidangan Kategori A - HIMAGRIND-PNC",
+  "steps": [
+    {
+      "id": 0,
+      "judul": "Menunggu Majelis",
+      "aktor": "Kebijakan Publik",
+      "deskripsi": "Selamat datang di persidangan Sidang Kepengurusan Kategori A. Harap ikuti prosedur sidang dengan tertib. Tinggalkan ruangan saat majelis mengizinkan atau sidang dijeda.",
+      "pasal": "Persus No 1/2026",
+      "lampiran": [],
+      "durasi": "",
+      "status": "menunggu",
+      "gaya": "default"
+    },
+    {
+      "id": 1,
+      "judul": "Sidang Kepengurusan Kategori A",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "\"Ubi Societas, Ibi Ius.\"\nDi Mana Ada Masyarakat, Di Situ Ada Hukum.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "sidang berjalan",
+      "gaya": "spesial"
+    },
+    {
+      "id": 2,
+      "judul": "SKORSING",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Sidang diskorsing. Boleh meninggalkan ruangan, dilarang memasuki ruang musyawarah majelis.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "skorsing",
+      "gaya": "default"
+    },
+    {
+      "id": 3,
+      "judul": "Musyawarah Majelis",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Saat ini majelis sedang mempersiapkan ruangan untuk musyawarah tertutup.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "menunggu",
+      "gaya": "spesial"
+    },
+    {
+      "id": 4,
+      "judul": "Musyawarah Sedang Berlangsung",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Saat ini ketua majelis telah membuka musyawarah. Anggota majelis memiliki suara yang sama dengan ketua majelis. Sekretaris Majelis hanya bertugas sebagai notulen.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "musyawarah",
+      "gaya": "default"
+    },
+    {
+      "id": 5,
+      "judul": "Pendapat Majelis",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Majelis sedang berdiskusi. Dalam mempertimbangkan fakta persidangan, majelis menjamin keadilan para pihak.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "musyawarah",
+      "gaya": "default"
+    },
+    {
+      "id": 6,
+      "judul": "Penyusunan Putusan",
+      "aktor": "Sekretaris Majelis",
+      "deskripsi": "Putusan sela dijatuhkan jika sidang harus dilanjutkan ke tahap etik atau majelis memandang butuh adanya pemeriksaan lanjutan. Sedangkan putusan akhir dijatuhkan ketika majelis telah melaksanakan seluruh agenda sidang dan sidang perlu diakhiri.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "musyawarah",
+      "gaya": "spesial"
+    },
+    {
+      "id": 7,
+      "judul": "Majelis Memasuki Ruang Sidang!",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Musyawarah Majelis telah selesai, harap kembali ke tempat masing-masing.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "menunggu",
+      "gaya": "default"
+    },
+    {
+      "id": 8,
+      "judul": "SKORSING SELESAI",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Skorsing telah berakhir, harap tenang kembali.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "sidang berjalan",
+      "gaya": "default"
+    },
+    {
+      "id": 9,
+      "judul": "PEMBACAAN PUTUSAN SELA",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Putusan sela dijatuhkan jika sidang harus dilanjutkan ke tahap etik atau majelis memandang butuh adanya pemeriksaan lanjutan.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "sidang berjalan",
+      "gaya": "spesial"
+    },
+    {
+      "id": 10,
+      "judul": "Pemeriksaan Lanjutan",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "\"Ubi Societas, Ibi Ius.\"\nDi Mana Ada Masyarakat Di Situ Ada Hukum.",
+      "pasal": "",
+      "lampiran": ["putusan sela, berita acara"],
+      "durasi": "",
+      "status": "sidsng berjalan",
+      "gaya": "default"
+    },
+    {
+      "id": 11,
+      "judul": "Pemeriksaan Etik",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Hiduplah dengan jujur dan terhormat.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "sidang berjalan",
+      "gaya": "spesial"
+    },
+    {
+      "id": 12,
+      "judul": "PENDING",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Sidang dipending. Silahkan meninggalkan ruangan, dan kembali sesuai dengan keputusan majelis.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "pending",
+      "gaya": "default"
+    },
+    {
+      "id": 13,
+      "judul": "PENDING SELESAI",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Pending telah berakhir, harap tenang kembali.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "sidang berjalan",
+      "gaya": "default"
+    },
+    {
+      "id": 14,
+      "judul": "PEMBATALAN",
+      "aktor": "Ketua Majelis",
+      "deskripsi": "Majelis menilai sidang tidak bisa dilanjutkan.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "batal",
+      "gaya": "spesial"
+    },
+    {
+      "id": 15,
+      "judul": "Putusan Akhir",
+      "aktor": "Majelis Presidium",
+      "deskripsi": "Untuk penghormatan terhadap hukum yang telah dibuat melalui kesepakatan bersama dan untuk ditaati sebaik-baiknya, seluruh hadirin dimohon berdiri.",
+      "pasal": "",
+      "lampiran": [],
+      "durasi": "",
+      "status": "putusan akhir",
+      "gaya": "spesial"
+    }
+  ]
+}

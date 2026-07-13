@@ -1,0 +1,15 @@
+{
+  "_petunjuk": "Pengaturan tampilan halaman publik. Ubah nilai untuk menyesuaikan tanpa mengubah kode.",
+  "animasi": {
+    "aktif": true,
+    "durasiMs": 550,
+    "gaya": "papan-pengumuman"
+  },
+  "progress": {
+    "tampilkanTitikTahap": true,
+    "tampilkanNomor": true
+  },
+  "polling": {
+    "fallbackIntervalMs": 8000
+  }
+}

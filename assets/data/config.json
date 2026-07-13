@@ -1,0 +1,40 @@
+{
+  "_petunjuk": "Isi supabaseUrl dan supabaseAnonKey sesuai project Supabase Anda. statusLegend berisi daftar status yang dikenali frontend; jika workflow.json memakai status di luar daftar ini, status tidak akan diberi warna. Anon key AMAN untuk publik selama RLS aktif (lihat sql/policies.sql). Nilai ini juga dipakai oleh assets/js/supabase.js.",
+  "supabaseUrl": "https://tkpeadnxkdaswpfvpcqt.supabase.co",
+  "supabaseAnonKey": "sb_publishable_WOUDhWuQwClh-p1dxh7QyA_Xr0lGz_Z",
+  "table": {
+    "sessionState": "session_state",
+    "history": "history"
+  },
+  "sessionId": 1,
+  "statusLegend": {
+    "pending": {
+      "label": "Pending",
+      "className": "pending"
+    },
+     "skorsing": {
+      "label": "Skorsing",
+      "className": "pending"
+    },
+    "menunggu": {
+      "label": "Menunggu",
+      "className": "waiting"
+    },
+    "batal": {
+      "label": "Batal",
+      "className": "batal"
+    },
+    "putusan akhir": {
+      "label": "Putusan Akhir",
+      "className": "batal"
+    },
+    "musyawarah": {
+      "label": "Musyawarah Majelis",
+      "className": "live"
+    },
+    "sidang berjalan": {
+      "label": "Sidang Berjalan",
+      "className": "live"
+    }
+  }
+}
