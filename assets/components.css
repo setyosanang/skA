@@ -1,0 +1,228 @@
+/* ===========================================================
+   COMPONENTS — Card / Badge / Progress / Dialog
+=========================================================== */
+
+/* ===========================
+   PAPAN PENGUMUMAN (board card)
+=========================== */
+
+.board{
+    position:relative;
+    isolation:isolate;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:2.5rem clamp(1.25rem,4vw,3.25rem);
+    min-height:50vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+}
+
+@media(min-width:900px){
+    .board{ padding:3.5rem clamp(2rem,5vw,4.5rem); min-height:54vh; }
+}
+
+.board::before{
+    content:'';
+    position:absolute;
+    inset:0 0 auto 0;
+    height:4px;
+    background:var(--border);
+}
+
+.board::after{
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    height:4px;
+    width:var(--progress,0%);
+    background:var(--primary);
+    transition:width .6s ease;
+}
+
+/* Tahap "spesial" — dibedakan lewat warna, bukan lewat besar font */
+.board.spesial{ border-color:var(--special-tint); background:linear-gradient(180deg, var(--special-tint) 0%, var(--bg-card) 22%); }
+.board.spesial::after{ background:var(--special); }
+
+.board-flag{
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    align-self:flex-start;
+    align-items:center;
+    gap:.4rem;
+    background:var(--special);
+    color:#fff;
+    font-size:.66rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    padding:.3rem .7rem;
+    border-radius:999px;
+    margin-bottom:.9rem;
+}
+
+.board-content{ position:relative; z-index:1; }
+
+.board-eyebrow{
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--board-eyebrow-color);
+    margin-bottom:.55rem;
+}
+
+.board-title{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(1.5rem,3.6vw,2.55rem);
+    line-height:1.22;
+    margin-bottom:.85rem;
+    max-width:38ch;
+    color:var(--board-title-color);
+}
+
+.board-desc{
+    color:var(--board-text-color);
+    font-size:.95rem;
+    line-height:1.7;
+    max-width:60ch;
+    margin-bottom:1.4rem;
+}
+
+@media(min-width:900px){
+    .board-desc{ font-size:1.02rem; max-width:65ch; }
+}
+
+.board-meta{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+}
+
+/* ===========================
+   BADGE
+=========================== */
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    padding:.35rem .75rem;
+    border-radius:999px;
+    background:var(--bg-card-soft);
+    border:1px solid var(--border);
+    font-size:.72rem;
+    font-weight:500;
+    color:var(--text-secondary);
+}
+
+.badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--primary); }
+
+.badge-actor{ font-weight:700; color:var(--text); }
+
+.status-badge{ font-weight:700; letter-spacing:.03em; }
+.status-badge.status-pending,
+.status-badge.status-waiting{ background:#F6EFCB; border-color:#E1C75C; color:#806500; }
+.status-badge.status-batal{ background:var(--danger-tint); border-color:rgba(177,84,84,.32); color:var(--danger); }
+.status-badge.status-live{ background:#E4F1E8; border-color:rgba(92,154,107,.32); color:#3F6E4D; }
+.status-badge.status-unknown{ background:var(--bg-card-soft); border-color:var(--border); color:var(--text-muted); }
+
+/* ===========================
+   ATTACHMENTS
+=========================== */
+
+.attachments{ position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+
+.attachment-item{
+    font-size:.74rem;
+    font-weight:500;
+    padding:.4rem .7rem;
+    border-radius:var(--radius-sm);
+    background:var(--bg-card-soft);
+    border:1px solid var(--border);
+    color:var(--text-secondary);
+}
+
+/* ===========================
+   PROGRESS DOTS (tahapan)
+=========================== */
+
+.step-dots{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+    align-items:center;
+}
+
+.step-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--border-strong);
+    transition:.3s;
+}
+
+.step-dot.done{ background:var(--text-muted); }
+.step-dot.active{
+    background:var(--primary);
+    width:22px;
+    border-radius:5px;
+}
+
+.step-dot.spesial{ background:var(--special-tint); border:1px solid var(--special); }
+.step-dot.spesial.done{ background:var(--special); border-color:var(--special); }
+.step-dot.spesial.active{ background:var(--special); border-color:var(--special); }
+
+.step-counter{
+    font-size:.72rem;
+    font-weight:500;
+    color:var(--text-muted);
+    margin-left:.5rem;
+    white-space:nowrap;
+}
+
+/* ===========================
+   DIALOG (konfirmasi admin)
+=========================== */
+
+.dialog-overlay{
+    position:fixed; inset:0;
+    background:rgba(43,42,33,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    padding:1rem;
+}
+
+.dialog-overlay[hidden]{ display:none; }
+
+.dialog-box{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:1.5rem;
+    max-width:360px;
+    width:100%;
+    box-shadow:var(--shadow-card);
+}
+
+.dialog-box h3{ position:relative; z-index:1; font-family:var(--font-display); font-weight:600; font-size:1.1rem; margin-bottom:.5rem; color:var(--text); }
+.dialog-box p{ position:relative; z-index:1; font-size:.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1.25rem; }
+
+.dialog-actions{ position:relative; z-index:1; display:flex; gap:.6rem; justify-content:flex-end; }
+
+.btn-ghost{ background:transparent; border:1px solid var(--border); color:var(--text-secondary); }
+.btn-ghost:hover{ border-color:var(--text-muted); }
+
+.btn-danger{ background:var(--danger-tint); color:var(--danger); }
+.btn-danger:hover{ background:#F0D5D0; }

@@ -1,0 +1,31 @@
+/* ===========================================================
+   ANIMATION — Transisi "Papan Pengumuman"
+   Satu gerakan yang konsisten, tidak ramai.
+=========================================================== */
+
+.board-content{
+    animation:board-in .55s cubic-bezier(.22,1,.36,1);
+}
+
+.board-content.leaving{
+    animation:board-out .25s ease forwards;
+}
+
+@keyframes board-in{
+    from{ opacity:0; transform:translateY(10px); filter:blur(3px); }
+    to{ opacity:1; transform:translateY(0); filter:blur(0); }
+}
+
+@keyframes board-out{
+    from{ opacity:1; transform:translateY(0); }
+    to{ opacity:0; transform:translateY(-8px); }
+}
+
+.status-dot.live{ animation:pulse-dot 2s infinite; }
+
+@keyframes pulse-dot{
+    0%,100%{ opacity:1; }
+    50%{ opacity:.5; }
+}
+
+.step-dot.active{ transition:width .3s ease, background .3s ease; }

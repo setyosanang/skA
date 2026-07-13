@@ -1,0 +1,167 @@
+/* ===========================================================
+   ADMIN DASHBOARD
+=========================================================== */
+
+.admin-layout{
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+    position:relative;
+    z-index:1;
+}
+
+.control-panel{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:1.6rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+    box-shadow:var(--shadow-card);
+}
+
+.control-panel .current-label{
+    position:relative; z-index:1;
+    font-size:.68rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    color:var(--text-muted);
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+}
+
+.current-label .tag-spesial{
+    display:inline-flex;
+    align-items:center;
+    background:var(--special);
+    color:#fff;
+    font-size:.62rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:.2rem .55rem;
+    border-radius:999px;
+}
+
+.control-panel .current-title{
+    position:relative; z-index:1;
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.3rem;
+    color:var(--text);
+    margin-top:.2rem;
+}
+
+.control-buttons{
+    position:relative; z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+}
+
+.btn-control{
+    background:var(--bg-card-soft);
+    border:1px solid var(--border);
+    color:var(--text-secondary);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+}
+
+.btn-control:hover{ border-color:var(--primary); color:var(--primary); }
+.btn-control.primary{ background:var(--primary); border-color:var(--primary); color:#fff; }
+.btn-control.primary:hover{ background:var(--primary-hover); }
+.btn-control.danger{ color:var(--danger); }
+.btn-control.danger:hover{ border-color:var(--danger); }
+
+.btn-control:disabled{ opacity:.4; cursor:not-allowed; }
+
+.step-list{
+    position:relative;
+    isolation:isolate;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:.75rem;
+    display:flex;
+    flex-direction:column;
+    gap:.3rem;
+    max-height:60vh;
+    overflow-y:auto;
+    box-shadow:var(--shadow-card);
+}
+
+.step-row{
+    position:relative;
+    z-index:1;
+    background:var(--bg-card);
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    padding:.6rem .75rem;
+    border-radius:var(--radius-sm);
+    font-size:.82rem;
+    font-weight:500;
+    color:var(--text-secondary);
+    border-left:3px solid transparent;
+    cursor:pointer;
+    transition:background .18s ease, transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.step-row:hover{
+    background:var(--bg-card-hover);
+    transform:translateX(2px);
+    box-shadow:0 2px 10px rgba(60,58,40,.05);
+}
+
+.step-row:focus-visible{
+    outline:2px solid var(--primary);
+    outline-offset:2px;
+}
+
+.step-row.active{
+    cursor:default;
+}
+
+.step-row .num{
+    width:24px; height:24px;
+    border-radius:50%;
+    background:var(--bg-card-soft);
+    border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.68rem;
+    font-weight:600;
+    color:var(--text-muted);
+    flex-shrink:0;
+}
+
+.step-row.spesial{ border-left-color:var(--special-tint); background:var(--special-tint); }
+.step-row.spesial .num{ border-color:var(--special); color:var(--special); }
+
+.step-row.active{ background:var(--primary-tint); border-left-color:var(--primary); }
+.step-row.active .num{ background:var(--primary); border-color:var(--primary); color:#fff; }
+.step-row.active.spesial{ background:var(--special-tint); border-left-color:var(--special); }
+.step-row.active.spesial .num{ background:var(--special); border-color:var(--special); color:#fff; }
+
+.step-row .judul{ color:var(--text); font-weight:600; }
+.step-row .aktor{ margin-left:auto; font-size:.68rem; font-weight:500; color:var(--text-muted); white-space:nowrap; }
+
+.admin-topbar{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.admin-topbar .who{ margin-left:auto; font-size:.72rem; color:var(--text-muted); }
+
+@media(min-width:900px){
+    .admin-layout{ flex-direction:row; align-items:flex-start; }
+    .control-panel{ flex:1; }
+    .step-list{ width:340px; flex-shrink:0; }
+}
