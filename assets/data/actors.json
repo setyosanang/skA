@@ -1,0 +1,33 @@
+{
+  "_petunjuk": "Daftar aktor/peran yang tampil pada badge di halaman publik. 'nama' harus sama persis dengan field 'aktor' pada workflow.json agar warna & inisial ikut terpakai.",
+  "actors": [
+    { "nama": "Ketua Majelis", 
+      "singkatan": "KM", 
+      "warna": "#6E7458" 
+    },
+    { "nama": "Kebijakan Publik", 
+      "singkatan": "KP", 
+      "warna": "#6E7458" 
+    },
+    { "nama": "Majelis Presidium", 
+      "singkatan": "MP", 
+      "warna": "#6E7458"
+    },
+    { "nama": "Sekretaris Majelis", 
+      "singkatan": "SM", 
+      "warna": "#B27B3D" 
+    },
+    { "nama": "Terlapor", 
+      "singkatan": "TP", 
+      "warna": "#8D8A73" 
+    },
+    { "nama": "Pelapor", 
+      "singkatan": "PL", 
+      "warna": "#7A8B9E" 
+    },
+    { "nama": "Saksi", 
+      "singkatan": "SK", 
+      "warna": "#A8907A" 
+    }
+  ]
+}
